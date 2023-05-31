@@ -36,13 +36,8 @@ notAktive = "no"
 # Anderfalls wird sich das Warning nie ändern ausser das "System clock wrong" verschwindet ganz aus dem Log.
 
 
-
-global clock_checking
-
-clock_checking = os.popen('systemctl status chrony').read()
-
-
 def last_line():
+    clock_checking = os.popen('systemctl status chrony').read(
     lastLine = clock_checking.splitlines()[-1]
     return lastLine
 
